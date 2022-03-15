@@ -11,6 +11,7 @@ This package includes a setup for writing aws lambda functions with Typescript.
 * Verify prettier is installed, enable on save in Webstorm preferences
 * Create the function in AWS console before deployments
 * Set typescript to recompile on changes in Webstorm preferences
+* Create a deploy folder
 
 ### How-to
 - clone the template and install modules (`npm install`)
