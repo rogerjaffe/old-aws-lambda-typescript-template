@@ -6,9 +6,12 @@
   "scripts": {
     "build": "webpack",
     "lambda:zip": "zip -j ./deploy/index.js.zip ./dist/index.js",
-    "lambda:upload": "chmod +rx deploy.sh && ./deploy.sh",
-    "deploy:dev": "npm run build; npm run lambda:zip; AWS_ENV=DEV npm run lambda:upload",
-    "deploy:prod": "npm run build; npm run lambda:zip; AWS_ENV=PRODUCTION npm run lambda:upload",
+    "lambda:upload": "chmod +rx deploy-function.sh && ./deploy-function.sh",
+    "lambda:layer": "chmod +rx deploy-layer.sh && ./deploy-layer.sh",
+    "deploy-function:dev": "npm run build; npm run lambda:zip; AWS_ENV=DEV npm run lambda:upload",
+    "deploy-function:prod": "npm run build; npm run lambda:zip; AWS_ENV=PRODUCTION npm run lambda:upload",
+    "deploy-layer:dev": "AWS_ENV=DEV npm run lambda:layer",
+    "deploy-layer:prod": "AWS_ENV=PRODUCTION npm run lambda:layer",
     "test": "npm run build; mocha tests/"
   },
   "author": "",

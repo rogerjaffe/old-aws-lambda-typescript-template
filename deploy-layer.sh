@@ -11,9 +11,9 @@ case $AWS_ENV in
 
 esac
 
-aws lambda update-function-code \
+# Update layers here
+# Multiple layers separated by a space
+aws lambda update-function-configuration \
   --function-name "$FUNC_NAME" \
-  --zip-file "fileb://./deploy/index.js.zip" \
-  --region "$AWS_REGION" \
-  --profile $AWS_PROFILE
-
+  --timeout $TIMEOUT \
+  --layers "$LAYER_ARNS"
